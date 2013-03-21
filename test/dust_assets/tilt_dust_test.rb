@@ -11,9 +11,9 @@ module DustAssets
       template = DustAssets::TiltDust.new('/myapp/app/assets/templates/x11.jst.dust') { "Hello {name}!" }
       compiled_template = <<-TEMPLATE
         (function(ctx, callback) {
-                  dust.loadSource('(function(){dust.register("x11",body_0);function body_0(chk,ctx){return chk.write("Hello ").reference(ctx.get("name"),ctx,"h").write("!");}return body_0;})();');
-                  dust.render('x11', ctx, callback);
-                })
+          dust.loadSource("(function(){dust.register(\\"x11\\",body_0);function body_0(chk,ctx){return chk.write(\\"Hello \\").reference(ctx.get(\\"name\\"),ctx,\\"h\\").write(\\"!\\");}return body_0;})();");
+          dust.render('x11', ctx, callback);
+        })
       TEMPLATE
       assert_equal compiled_template, template.render(scope, {})
     end
