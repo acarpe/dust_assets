@@ -20,7 +20,7 @@ module DustAssets
       end
 
       def path
-        @path ||= assets_path.join('dust.js')
+        @path ||= assets_path.join('dust-full.js')
       end
 
       def assets_path
