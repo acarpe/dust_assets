@@ -1,8 +1,9 @@
 module DustAssets
   class Engine < ::Rails::Engine
-    initializer "sprockets.dust", :after => "sprockets.environment", :group => :all do |app|
-      next unless app.assets
-      app.assets.register_engine('.dust', TiltDust)
+    initializer 'sprockets.dust', :after => 'sprockets.environment', :group => :all do |_|
+      config.assets.configure do |sprockets_env|
+        ::DustAssets::register_extensions(sprockets_env)
+      end
     end
   end
 end

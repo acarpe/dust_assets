@@ -5,8 +5,8 @@ require 'pathname'
 module DustAssets
   class Dust
     class << self
-      def precompile(source, name)
-        context.call('dust.compile', source, name)
+      def precompile(*args)
+        context.call('dust.compile', *args)
       end
 
       private
