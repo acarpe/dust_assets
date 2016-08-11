@@ -20,7 +20,7 @@ module DustAssets
     end
 
     def call(input)
-      template_name = input[:filename]
+      template_name = input[:name]
       compiled = Dust.precompile(input[:data], template_name)
       <<-TEMPLATE
         (function(ctx, callback) {
